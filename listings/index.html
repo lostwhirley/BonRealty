@@ -230,6 +230,7 @@
     }
     .card-details span { display: flex; align-items: center; gap: 5px; }
     .card-details i { color: var(--light); font-size: 0.7rem; }
+    .card-mls { display: block; font-size: 0.72rem; color: var(--light); margin-top: 8px; }
 
     .card-divider {
       height: 1px;
@@ -384,8 +385,10 @@
       return '$' + Number(n).toLocaleString('en-US');
     }
 
-    function thumb(videoId) {
-      return `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+    function thumb(l) {
+      if (l.photoUrl) return l.photoUrl;
+      if (l.videoId)  return `https://img.youtube.com/vi/${l.videoId}/mqdefault.jpg`;
+      return null;
     }
 
     function shortAddr(address) {
@@ -419,29 +422,32 @@
       }
 
       grid.innerHTML = filtered.map(l => {
-        const imgSrc = l.videoId ? thumb(l.videoId) : '';
+        const imgSrc = thumb(l);
         const imgTag = imgSrc
           ? `<img src="${imgSrc}" alt="${l.address}" loading="lazy">`
           : `<div style="width:100%;height:100%;background:var(--border);display:flex;align-items:center;justify-content:center;color:var(--light)"><i class="fas fa-home" style="font-size:2rem"></i></div>`;
 
-        const acresNote = l.acres ? `<span><i class="fas fa-tree"></i>${l.acres} ac</span>` : '';
+        const statusLabel = l.status || badgeLabel(l.category);
+        const acresNote   = l.acres ? `<span><i class="fas fa-tree"></i>${l.acres} ac</span>` : '';
+        const mlsBadge    = l.mlsNumber ? `<span class="card-mls">MLS# ${l.mlsNumber}</span>` : '';
 
         return `
           <article class="listing-card" onclick="location.href='detail.html?id=${l.id}'">
             <div class="card-photo">
               ${imgTag}
-              <span class="card-badge ${badgeClass(l.category)}">${badgeLabel(l.category)}</span>
+              <span class="card-badge ${badgeClass(l.category)}">${statusLabel}</span>
             </div>
             <div class="card-body">
               <div class="card-price">${fmt(l.price)}</div>
               <div class="card-address">${l.address}</div>
               <div class="card-city">${l.city}, ${l.state} ${l.zip}</div>
               <div class="card-details">
-                <span><i class="fas fa-bed"></i>${l.beds} BED</span>
-                <span><i class="fas fa-bath"></i>${l.baths} BATH</span>
-                ${l.sqft ? `<span><i class="fas fa-ruler-combined"></i>${l.sqft.toLocaleString()} sq ft</span>` : ''}
+                ${l.beds  ? `<span><i class="fas fa-bed"></i>${l.beds} BED</span>` : ''}
+                ${l.baths ? `<span><i class="fas fa-bath"></i>${l.baths} BATH</span>` : ''}
+                ${l.sqft  ? `<span><i class="fas fa-ruler-combined"></i>${l.sqft.toLocaleString()} sq ft</span>` : ''}
                 ${acresNote}
               </div>
+              ${mlsBadge}
             </div>
             <div class="card-divider"></div>
             <span class="card-cta">View ${shortAddr(l.address)}</span>

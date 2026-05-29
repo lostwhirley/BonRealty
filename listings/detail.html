@@ -143,8 +143,9 @@
     .detail-city {
       font-size: 0.95rem;
       color: var(--mid);
-      margin-bottom: 28px;
+      margin-bottom: 6px;
     }
+    .detail-mls { font-size: 0.8rem; color: var(--light); margin-bottom: 20px; }
 
     .detail-specs {
       display: flex;
@@ -381,9 +382,8 @@
       /* Update page title */
       document.title = `${listing.address}, ${listing.city} | Bon Realty`;
 
-      const thumb = listing.videoId
-        ? `https://img.youtube.com/vi/${listing.videoId}/maxresdefault.jpg`
-        : '';
+      const thumb = listing.photoUrl
+        || (listing.videoId ? `https://img.youtube.com/vi/${listing.videoId}/maxresdefault.jpg` : '');
 
       const heroImg = thumb
         ? `<img src="${thumb}" alt="${listing.address}">`
@@ -444,6 +444,7 @@
             <div class="detail-price">${fmt(listing.price)}</div>
             <div class="detail-address">${listing.address}</div>
             <div class="detail-city">${listing.city}, ${listing.state} ${listing.zip}</div>
+            ${listing.mlsNumber ? `<div class="detail-mls">MLS# ${listing.mlsNumber}${listing.status ? ' &nbsp;·&nbsp; ' + listing.status : ''}</div>` : ''}
 
             <div class="detail-specs">
               <div class="spec-item">
