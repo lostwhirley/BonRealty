@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    /* ── Variables ─────────────────────────────────────────── */
     :root {
       --cream:      #F5EFE8;
       --white:      #FFFFFF;
@@ -39,22 +40,36 @@
 
     /* ── Nav ─────────────────────────────────────────────────── */
     .site-header {
-      position: sticky; top: 0; z-index: 100;
+      position: sticky;
+      top: 0;
+      z-index: 100;
       background: rgba(255,255,255,0.97);
       border-bottom: 1px solid var(--border);
       height: var(--nav-h);
     }
     .header-inner {
-      max-width: var(--max); margin: 0 auto;
-      padding: 0 28px; height: 100%;
-      display: flex; align-items: center; gap: 28px;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 28px;
     }
-    .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
     .logo-monogram {
       width: 40px; height: 40px;
-      border: 1.5px solid var(--coral); border-radius: 50%;
+      border: 1.5px solid var(--coral);
+      border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--coral);
+      font-family: var(--serif);
+      font-size: 0.95rem; font-weight: 600;
+      color: var(--coral);
     }
     .logo-monogram span { color: var(--light); font-weight: 300; }
     .logo-text { display: flex; flex-direction: column; line-height: 1; }
@@ -72,194 +87,234 @@
       padding: 52px 28px 40px;
       text-align: center;
     }
-    .page-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
-    .page-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; color: var(--dark); margin-bottom: 10px; }
+    .page-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 10px;
+    }
+    .page-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
     .page-title em { font-style: italic; color: var(--coral); }
-    .page-sub { font-size: 0.95rem; color: var(--mid); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+    .page-sub {
+      font-size: 0.95rem;
+      color: var(--mid);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
 
     /* ── Filter Tabs ─────────────────────────────────────────── */
     .filter-bar {
-      max-width: var(--max); margin: 36px auto 0; padding: 0 28px;
-      display: flex; gap: 10px; flex-wrap: wrap;
+      max-width: var(--max);
+      margin: 36px auto 0;
+      padding: 0 28px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
     .filter-btn {
-      padding: 10px 20px; border-radius: 40px;
-      font-family: var(--sans); font-size: 0.82rem; font-weight: 600;
-      cursor: pointer; border: 1.5px solid var(--dark);
-      background: transparent; color: var(--dark);
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid var(--dark);
+      background: transparent;
+      color: var(--dark);
       transition: background .2s, color .2s, border-color .2s;
       white-space: nowrap;
     }
-    .filter-btn.active { background: var(--dark); color: var(--white); border-color: var(--dark); }
-    .filter-btn:hover:not(.active) { border-color: var(--coral); color: var(--coral); }
-
-    /* ── Main Container ──────────────────────────────────────── */
-    .listings-section { max-width: var(--max); margin: 0 auto; padding: 36px 28px 80px; }
-
-    /* ── Active Listings — FlexMLS embed panel ───────────────── */
-    #active-panel { display: block; }
-    #cards-panel  { display: none;  }
-
-    .flexmls-wrap {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      min-height: 720px;
-      display: flex;
-      flex-direction: column;
+    .filter-btn.active {
+      background: var(--dark);
+      color: var(--white);
+      border-color: var(--dark);
+    }
+    .filter-btn:hover:not(.active) {
+      border-color: var(--coral);
+      color: var(--coral);
     }
 
-    .flexmls-topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 20px;
-      background: var(--cream);
-      border-bottom: 1px solid var(--border);
-      flex-wrap: wrap;
-    }
-    .flexmls-label {
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--mid);
-      display: flex; align-items: center; gap: 6px;
-    }
-    .flexmls-label i { color: var(--coral); }
-    .flexmls-open-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.78rem; font-weight: 600; color: var(--coral);
-      transition: color .2s;
-    }
-    .flexmls-open-link:hover { color: var(--coral-dark); }
-
-    #flexmls-iframe {
-      flex: 1;
-      width: 100%;
-      min-height: 680px;
-      border: none;
+    /* ── Listings Grid ───────────────────────────────────────── */
+    .listings-section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 36px 28px 80px;
     }
 
-    /* Fallback shown if iframe is blocked */
-    .iframe-fallback {
-      display: none;
-      flex: 1;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 28px;
-      gap: 16px;
-    }
-    .iframe-fallback.show { display: flex; }
-    .iframe-fallback i { font-size: 3rem; color: var(--light); }
-    .iframe-fallback h3 { font-family: var(--serif); font-size: 1.5rem; }
-    .iframe-fallback p { color: var(--mid); font-size: 0.9rem; max-width: 420px; line-height: 1.7; }
-    .iframe-fallback a {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 24px; background: var(--coral); color: #fff;
-      border-radius: var(--radius); font-size: 0.85rem; font-weight: 600;
-      transition: background .2s;
-    }
-    .iframe-fallback a:hover { background: var(--coral-dark); }
-
-    /* ── IDX Setup Info Box ──────────────────────────────────── */
-    .idx-info {
-      margin-top: 20px;
-      border: 1.5px dashed var(--border);
-      border-radius: var(--radius);
-      padding: 24px 28px;
-      background: rgba(255,255,255,0.6);
-    }
-    .idx-info-header {
-      display: flex; align-items: center; gap: 10px;
-      margin-bottom: 12px;
-      cursor: pointer;
-      user-select: none;
-    }
-    .idx-info-header i.icon { color: var(--coral); }
-    .idx-info-header h4 { font-size: 0.9rem; font-weight: 600; flex: 1; }
-    .idx-info-header .toggle { color: var(--mid); font-size: 0.75rem; transition: transform .2s; }
-    .idx-info-header.open .toggle { transform: rotate(180deg); }
-    .idx-info-body { display: none; }
-    .idx-info-body.open { display: block; }
-    .idx-info-body p { font-size: 0.85rem; color: var(--dark-mid); line-height: 1.7; margin-bottom: 10px; }
-    .idx-info-body ol { padding-left: 18px; }
-    .idx-info-body ol li { font-size: 0.85rem; color: var(--dark-mid); line-height: 1.7; margin-bottom: 4px; }
-    .idx-info-body code {
-      font-size: 0.8rem; background: var(--cream);
-      border: 1px solid var(--border); border-radius: 4px;
-      padding: 2px 6px; font-family: monospace;
-    }
-    .idx-placeholder {
-      margin-top: 12px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      font-size: 0.8rem;
-      font-family: monospace;
-      color: var(--mid);
-      white-space: pre-wrap;
-    }
-
-    /* ── Card Grid (buyer/seller) ────────────────────────────── */
     .listings-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
+
     .listing-card {
-      background: var(--white); border-radius: var(--radius); overflow: hidden;
-      box-shadow: var(--shadow); display: flex; flex-direction: column;
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
       transition: transform .25s cubic-bezier(0.4,0,0.2,1), box-shadow .25s;
       cursor: pointer;
     }
-    .listing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-    .card-photo { position: relative; aspect-ratio: 16/11; overflow: hidden; background: #ddd; }
-    .card-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s cubic-bezier(0.4,0,0.2,1); }
-    .listing-card:hover .card-photo img { transform: scale(1.04); }
-    .card-badge {
-      position: absolute; top: 12px; left: 12px;
-      padding: 4px 10px; border-radius: 4px;
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    .listing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
     }
-    .badge-active  { background: var(--coral); color: #fff; }
-    .badge-buyer   { background: #5C8A78;      color: #fff; }
-    .badge-seller  { background: #7A6B9A;      color: #fff; }
-    .card-body { padding: 22px 22px 0; flex: 1; }
-    .card-price { font-family: var(--serif); font-size: 1.85rem; font-weight: 500; color: var(--dark); margin-bottom: 8px; line-height: 1; }
-    .card-address { font-size: 0.95rem; font-weight: 600; color: var(--dark); margin-bottom: 3px; }
-    .card-city { font-size: 0.82rem; color: var(--mid); margin-bottom: 14px; }
-    .card-details { display: flex; gap: 18px; font-size: 0.82rem; font-weight: 500; color: var(--dark-mid); flex-wrap: wrap; }
+
+    .card-photo {
+      position: relative;
+      aspect-ratio: 16/11;
+      overflow: hidden;
+      background: #ddd;
+    }
+    .card-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .listing-card:hover .card-photo img { transform: scale(1.04); }
+
+    .card-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .badge-active   { background: var(--coral);   color: #fff; }
+    .badge-buyer    { background: #5C8A78;         color: #fff; }
+    .badge-seller   { background: #7A6B9A;         color: #fff; }
+
+    .card-body {
+      padding: 22px 22px 0;
+      flex: 1;
+    }
+    .card-price {
+      font-family: var(--serif);
+      font-size: 1.85rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    .card-address {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 3px;
+    }
+    .card-city {
+      font-size: 0.82rem;
+      color: var(--mid);
+      margin-bottom: 14px;
+    }
+    .card-details {
+      display: flex;
+      gap: 18px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--dark-mid);
+    }
     .card-details span { display: flex; align-items: center; gap: 5px; }
     .card-details i { color: var(--light); font-size: 0.7rem; }
-    .card-divider { height: 1px; background: var(--border); margin: 18px 22px 0; }
+
+    .card-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 18px 22px 0;
+    }
+
     .card-cta {
-      display: block; text-align: center; padding: 14px 22px;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--dark); transition: background .2s, color .2s;
+      display: block;
+      text-align: center;
+      padding: 14px 22px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark);
+      transition: background .2s, color .2s;
       border-radius: 0 0 var(--radius) var(--radius);
     }
-    .listing-card:hover .card-cta { background: var(--coral); color: #fff; }
-    .no-results { grid-column: 1 / -1; text-align: center; padding: 80px 20px; color: var(--mid); }
+    .listing-card:hover .card-cta {
+      background: var(--coral);
+      color: #fff;
+    }
+
+    /* No results */
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--mid);
+    }
     .no-results p { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 8px; }
+    .no-results span { font-size: 0.88rem; }
+
+    /* ── MLS CTA Banner ──────────────────────────────────────── */
+    .mls-banner {
+      background: var(--dark);
+      padding: 40px 28px;
+      text-align: center;
+    }
+    .mls-banner p {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 16px;
+    }
+    .mls-banner a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      background: var(--coral);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      transition: background .2s;
+    }
+    .mls-banner a:hover { background: var(--coral-dark); }
 
     /* ── Footer ──────────────────────────────────────────────── */
-    .site-footer { background: var(--dark); padding: 28px; text-align: center; }
-    .site-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+    .site-footer {
+      background: var(--dark);
+      padding: 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .site-footer p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+    }
     .site-footer a { color: var(--coral); }
     .site-footer a:hover { color: #fff; }
 
     /* ── Responsive ──────────────────────────────────────────── */
-    @media (max-width: 900px) { .listings-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 900px) {
+      .listings-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 600px) {
       .nav-links, .nav-phone { display: none; }
       .listings-grid { grid-template-columns: 1fr; }
+      .filter-bar { gap: 8px; }
       .filter-btn { padding: 8px 14px; font-size: 0.78rem; }
-      #flexmls-iframe { min-height: 520px; }
     }
   </style>
 </head>
@@ -286,134 +341,71 @@
     </div>
   </header>
 
-  <!-- Page Header -->
+  <!-- Page Hero -->
   <div class="page-hero">
     <p class="page-eyebrow">Bon Realty</p>
     <h1 class="page-title">Properties in <em>Southwest Michigan</em></h1>
-    <p class="page-sub">Browse active MLS listings, recent buyer representations, and seller success stories — all from Beth Van's team.</p>
+    <p class="page-sub">Active listings, recent buyer representations, and seller success stories — all from Beth Van's team.</p>
   </div>
 
   <!-- Filter Tabs -->
   <div class="filter-bar" id="filter-bar">
-    <button class="filter-btn active" data-filter="active">Active Listings</button>
-    <button class="filter-btn" data-filter="buyer">Worked with Buyer (<span id="buyer-count">0</span>)</button>
-    <button class="filter-btn" data-filter="seller">Worked with Seller (<span id="seller-count">0</span>)</button>
+    <button class="filter-btn active" data-filter="active">Active Listings (<span class="count" data-cat="active">0</span>)</button>
+    <button class="filter-btn" data-filter="buyer">Worked with Buyer (<span class="count" data-cat="buyer">0</span>)</button>
+    <button class="filter-btn" data-filter="seller">Worked with Seller (<span class="count" data-cat="seller">0</span>)</button>
   </div>
 
+  <!-- Grid -->
   <section class="listings-section">
-
-    <!-- ── ACTIVE: FlexMLS embed ───────────────────────────────── -->
-    <div id="active-panel">
-      <div class="flexmls-wrap">
-        <div class="flexmls-topbar">
-          <span class="flexmls-label">
-            <i class="fas fa-circle" style="font-size:0.5rem"></i>
-            Live MLS Data — Southwest Michigan
-          </span>
-          <a href="https://link.flexmls.com/12jnke8sb572,18" target="_blank" class="flexmls-open-link">
-            Open full search <i class="fas fa-external-link-alt" style="font-size:0.7rem"></i>
-          </a>
-        </div>
-
-        <!-- The iframe: tries to embed the FlexMLS shared search -->
-        <iframe
-          id="flexmls-iframe"
-          src="https://link.flexmls.com/12jnke8sb572,18"
-          title="Bon Realty MLS Listings"
-          loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
-        ></iframe>
-
-        <!-- Shown by JS if iframe fails to load content -->
-        <div class="iframe-fallback" id="iframe-fallback">
-          <i class="fas fa-home"></i>
-          <h3>View Live Listings on FlexMLS</h3>
-          <p>
-            FlexMLS restricts embedding in iframes. Click below to open the full,
-            live MLS search in a new tab — all listings, photos, and details included.
-          </p>
-          <a href="https://link.flexmls.com/12jnke8sb572,18" target="_blank">
-            <i class="fas fa-search"></i> Search All MLS Listings
-          </a>
-        </div>
-      </div>
-
-      <!-- IDX Setup Accordion -->
-      <div class="idx-info">
-        <div class="idx-info-header" id="idx-toggle">
-          <i class="fas fa-info-circle icon"></i>
-          <h4>Want full photo galleries embedded here? — IDX Setup Guide for Beth</h4>
-          <i class="fas fa-chevron-down toggle"></i>
-        </div>
-        <div class="idx-info-body" id="idx-body">
-          <p>
-            An <strong>IDX (Internet Data Exchange)</strong> feed gives your website licensed access to full MLS listing data including all photos, updated automatically. Here's how to get it set up:
-          </p>
-          <ol>
-            <li>Contact your MLS board (Southwest Michigan MLS / Michigan Regional MLS) and request <strong>IDX authorization</strong> for your website. This is standard — most boards approve it.</li>
-            <li>Ask FlexMLS for your <strong>IDX embed credentials</strong> or sign up for a FlexMLS IDX widget plan. Alternatively, services like <strong>iHomeFinder</strong> or <strong>IDX Broker</strong> plug directly into FlexMLS.</li>
-            <li>Once you have the embed code, replace the placeholder comment below in <code>listings/index.html</code> with your real IDX widget code — the listings and photos will appear automatically.</li>
-          </ol>
-          <p>Replace the <code>&lt;iframe&gt;</code> above with your IDX widget embed code. It will look something like this:</p>
-          <div class="idx-placeholder">&lt;!-- PASTE YOUR IDX WIDGET CODE HERE --&gt;
-&lt;script src="https://your-idx-provider.com/widget.js"
-        data-agent-id="YOUR_AGENT_ID"&gt;
-&lt;/script&gt;</div>
-        </div>
-      </div>
+    <div class="listings-grid" id="listings-grid">
+      <!-- Populated by JS -->
     </div>
-
-    <!-- ── BUYER / SELLER: styled card grid ───────────────────── -->
-    <div id="cards-panel">
-      <div class="listings-grid" id="listings-grid"></div>
-    </div>
-
   </section>
+
+  <!-- Full MLS Search Banner -->
+  <div class="mls-banner">
+    <p>Looking for something not listed here?</p>
+    <a href="https://link.flexmls.com/12jnke8sb572,18" target="_blank">
+      <i class="fas fa-search"></i> Search the Full MLS
+    </a>
+  </div>
 
   <!-- Footer -->
   <footer class="site-footer">
     <p>&copy; 2025 Bon Realty &nbsp;·&nbsp; 226 South Lincoln Ave, Niles, MI &nbsp;·&nbsp; <a href="tel:2696844445">(269) 684-4445</a> &nbsp;·&nbsp; <a href="../index.html">Back to Home</a></p>
   </footer>
 
+  <!-- Data -->
   <script src="data/listings.js"></script>
+
   <script>
-    /* ── Helpers ─────────────────────────────────────────────── */
-    const fmt  = n => '$' + Number(n).toLocaleString('en-US');
-    const thumb = id => `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
-    const shortAddr = addr => addr.split(' ').slice(0, 2).join(' ').toUpperCase();
-    const badgeClass = c => ({ active:'badge-active', buyer:'badge-buyer', seller:'badge-seller' }[c] || '');
-    const badgeLabel = c => ({ active:'Active', buyer:'Buyer Rep', seller:'Seller Rep' }[c] || c);
-
-    /* ── Update counts ───────────────────────────────────────── */
-    document.getElementById('buyer-count').textContent  = LISTINGS.filter(l => l.category === 'buyer').length;
-    document.getElementById('seller-count').textContent = LISTINGS.filter(l => l.category === 'seller').length;
-
-    /* ── Iframe load detection ───────────────────────────────── */
-    /* FlexMLS may block embedding — detect and show fallback */
-    const iframe = document.getElementById('flexmls-iframe');
-    const fallback = document.getElementById('iframe-fallback');
-
-    function showFallback() {
-      iframe.style.display = 'none';
-      fallback.classList.add('show');
+    /* ── helpers ─────────────────────────────────────────────── */
+    function fmt(n) {
+      return '$' + Number(n).toLocaleString('en-US');
     }
 
-    iframe.addEventListener('load', () => {
-      try {
-        /* If cross-origin block, contentDocument will throw */
-        const doc = iframe.contentDocument || iframe.contentWindow?.document;
-        if (!doc || doc.body.innerHTML.trim() === '') showFallback();
-      } catch {
-        showFallback();
-      }
-    });
-    /* Also show fallback if iframe errors */
-    iframe.addEventListener('error', showFallback);
+    function thumb(videoId) {
+      return `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+    }
 
-    /* ── Render card grid ────────────────────────────────────── */
+    function shortAddr(address) {
+      // e.g. "100 Forest Avenue" → "100 Forest"
+      const parts = address.split(' ');
+      return parts.slice(0, 2).join(' ').toUpperCase();
+    }
+
+    function badgeClass(cat) {
+      return { active: 'badge-active', buyer: 'badge-buyer', seller: 'badge-seller' }[cat] || '';
+    }
+
+    function badgeLabel(cat) {
+      return { active: 'Active', buyer: 'Buyer Rep', seller: 'Seller Rep' }[cat] || cat;
+    }
+
+    /* ── render ──────────────────────────────────────────────── */
     let currentFilter = 'active';
 
-    function renderCards(filter) {
+    function renderGrid(filter) {
       const grid = document.getElementById('listings-grid');
       const filtered = LISTINGS.filter(l => l.category === filter);
 
@@ -427,8 +419,9 @@
       }
 
       grid.innerHTML = filtered.map(l => {
-        const imgTag = l.videoId
-          ? `<img src="${thumb(l.videoId)}" alt="${l.address}" loading="lazy">`
+        const imgSrc = l.videoId ? thumb(l.videoId) : '';
+        const imgTag = imgSrc
+          ? `<img src="${imgSrc}" alt="${l.address}" loading="lazy">`
           : `<div style="width:100%;height:100%;background:var(--border);display:flex;align-items:center;justify-content:center;color:var(--light)"><i class="fas fa-home" style="font-size:2rem"></i></div>`;
 
         const acresNote = l.acres ? `<span><i class="fas fa-tree"></i>${l.acres} ac</span>` : '';
@@ -455,7 +448,7 @@
           </article>`;
       }).join('');
 
-      /* staggered fade-in */
+      /* fade in */
       requestAnimationFrame(() => {
         grid.querySelectorAll('.listing-card').forEach((card, i) => {
           card.style.opacity = '0';
@@ -469,40 +462,26 @@
       });
     }
 
-    /* ── Filter switching ────────────────────────────────────── */
-    const activePanel = document.getElementById('active-panel');
-    const cardsPanel  = document.getElementById('cards-panel');
-
-    function switchFilter(filter) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      document.querySelector(`[data-filter="${filter}"]`).classList.add('active');
-      currentFilter = filter;
-
-      if (filter === 'active') {
-        activePanel.style.display = 'block';
-        cardsPanel.style.display  = 'none';
-      } else {
-        activePanel.style.display = 'none';
-        cardsPanel.style.display  = 'block';
-        renderCards(filter);
-      }
+    function updateCounts() {
+      document.querySelectorAll('.count[data-cat]').forEach(el => {
+        const cat = el.dataset.cat;
+        el.textContent = LISTINGS.filter(l => l.category === cat).length;
+      });
     }
 
+    /* ── filters ─────────────────────────────────────────────── */
     document.getElementById('filter-bar').addEventListener('click', e => {
       const btn = e.target.closest('.filter-btn');
-      if (btn) switchFilter(btn.dataset.filter);
+      if (!btn) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      renderGrid(currentFilter);
     });
 
-    /* ── IDX accordion ───────────────────────────────────────── */
-    document.getElementById('idx-toggle').addEventListener('click', () => {
-      const header = document.getElementById('idx-toggle');
-      const body   = document.getElementById('idx-body');
-      header.classList.toggle('open');
-      body.classList.toggle('open');
-    });
-
-    /* ── Init ────────────────────────────────────────────────── */
-    switchFilter('active');
+    /* ── init ────────────────────────────────────────────────── */
+    updateCounts();
+    renderGrid(currentFilter);
   </script>
 </body>
 </html>
