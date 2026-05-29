@@ -149,6 +149,27 @@ const LISTINGS = [
     mlsLink: "https://link.flexmls.com/12jnke8sb572,18"
   },
 
+  {
+    id: "54879-indian-lake-dowagiac-active",
+    category: "active",
+    status: "Active",
+    mlsNumber: "26015574",
+    address: "54879 Indian Lake",
+    city: "Dowagiac",
+    state: "MI",
+    zip: "49047",
+    price: 385000,
+    beds: 3,
+    baths: 3,
+    sqft: 1850,
+    acres: null,
+    description: "Beautiful lakefront property on Indian Lake in Silver Creek Township. Three bedrooms, three baths, and 1,850 sq ft make this the perfect Michigan lake retreat.",
+    highlights: ["Indian Lake", "3 Bed / 3 Bath", "1,850 sq ft", "Silver Creek Twp"],
+    photoUrl: "https://cdn1.photos.sparkplatform.com/ric/20260415155428172344000000.jpg",
+    videoId: null,
+    mlsLink: "https://link.flexmls.com/12jnke8sb572,18"
+  },
+
   /* ── WORKED WITH BUYER ────────────────────────────────────── */
   {
     id: "4248-tudor-berrien-springs",
