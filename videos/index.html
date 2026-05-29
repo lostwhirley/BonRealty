@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Tour Videos | Bon Realty — Southwest Michigan</title>
+  <meta name="description" content="Watch property tour videos for Southwest Michigan homes listed by Bon Realty. Beth Van, Broker-Owner.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --cream:      #F5EFE8;
+      --white:      #FFFFFF;
+      --coral:      #C97B63;
+      --coral-dark: #B0624A;
+      --coral-light:#E8A898;
+      --dark:       #2C2420;
+      --dark-mid:   #4A3F38;
+      --mid:        #7A6960;
+      --light:      #C4B5AD;
+      --border:     #E2D7CF;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+      --max:        1180px;
+      --nav-h:      76px;
+      --radius:     8px;
+      --shadow:     0 2px 16px rgba(44,36,32,0.09);
+      --shadow-hover: 0 8px 36px rgba(44,36,32,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Nav ─────────────────────────────────────────────────── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--dark);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      height: var(--nav-h);
+    }
+    .header-inner {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 28px; height: 100%;
+      display: flex; align-items: center; gap: 28px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .logo-monogram {
+      width: 42px; height: 42px;
+      border: 1.5px solid rgba(255,255,255,0.35); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 0.95rem; font-weight: 600;
+      color: rgba(255,255,255,0.9);
+    }
+    .logo-monogram span { color: rgba(255,255,255,0.3); font-weight: 300; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .logo-bon   { font-family: var(--serif); font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; color: #fff; }
+    .logo-sub   { font-family: var(--sans); font-size: 0.55rem; font-weight: 500; letter-spacing: 0.22em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
+    .nav-links  { display: flex; gap: 28px; margin-left: auto; }
+    .nav-links a {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+      transition: color .2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--coral-light);
+      transition: width .25s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a.active { color: #fff; }
+    .nav-phone { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; color: var(--coral-light); flex-shrink: 0; }
+    .nav-phone:hover { color: #fff; }
+
+    /* ── Page Hero ───────────────────────────────────────────── */
+    .page-hero {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 28px 44px;
+      text-align: center;
+    }
+    .page-eyebrow {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--coral); margin-bottom: 12px;
+    }
+    .page-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 500; color: var(--dark); margin-bottom: 12px;
+    }
+    .page-title em { font-style: italic; color: var(--coral); }
+    .page-sub {
+      font-size: 0.95rem; color: var(--mid);
+      max-width: 500px; margin: 0 auto; line-height: 1.7;
+    }
+
+    /* ── Video Grid ──────────────────────────────────────────── */
+    .videos-section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 28px 80px;
+    }
+
+    .videos-count {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--mid); margin-bottom: 28px;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .video-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform .25s cubic-bezier(0.4,0,0.2,1), box-shadow .25s;
+    }
+    .video-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+    .video-thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: var(--dark);
+    }
+    .video-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .video-card:hover .video-thumb img { transform: scale(1.04); }
+
+    .play-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(44,36,32,0.28);
+      transition: background .25s;
+    }
+    .video-card:hover .play-overlay { background: rgba(44,36,32,0.1); }
+    .play-overlay i {
+      font-size: 3rem;
+      color: rgba(255,255,255,0.9);
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      transition: transform .2s;
+    }
+    .video-card:hover .play-overlay i { transform: scale(1.12); }
+
+    .video-num {
+      position: absolute;
+      top: 10px; left: 12px;
+      background: rgba(44,36,32,0.7);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 3px 8px; border-radius: 4px;
+    }
+
+    .video-info { padding: 16px 18px 20px; }
+    .video-info h3 {
+      font-family: var(--serif);
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--dark); margin-bottom: 5px; line-height: 1.3;
+    }
+    .video-info p {
+      font-size: 0.8rem; color: var(--mid);
+      line-height: 1.55;
+    }
+
+    /* ── Video Modal ─────────────────────────────────────────── */
+    .video-modal {
+      position: fixed; inset: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    .video-modal.open { opacity: 1; pointer-events: all; }
+    .modal-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(28,22,18,0.88);
+    }
+    .modal-inner {
+      position: relative; z-index: 1;
+      width: min(920px, 94vw);
+    }
+    .modal-close {
+      position: absolute; top: -44px; right: 0;
+      color: rgba(255,255,255,0.75); font-size: 1.5rem;
+      cursor: pointer; background: none; border: none;
+      transition: color .2s;
+    }
+    .modal-close:hover { color: #fff; }
+    .modal-embed {
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .modal-embed iframe { width: 100%; height: 100%; border: none; }
+
+    /* ── Footer ──────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--dark); padding: 28px; text-align: center;
+    }
+    .site-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+    .site-footer a { color: var(--coral-light); }
+    .site-footer a:hover { color: #fff; }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 900px) { .videos-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) {
+      .nav-links, .nav-phone { display: none; }
+      .videos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-monogram">B<span>|</span>R</div>
+        <div class="logo-text">
+          <span class="logo-bon">BON</span>
+          <span class="logo-sub">REALTY</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../listings/index.html">Listings</a>
+        <a href="index.html" class="active">Videos</a>
+        <a href="../index.html#team">Team</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <a href="tel:2696844445" class="nav-phone">(269) 684-4445</a>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <p class="page-eyebrow">Bon Realty</p>
+    <h1 class="page-title">Property <em>Tour Videos</em></h1>
+    <p class="page-sub">See the homes before you visit. Beth's video tours give you a real feel for each property — inside and out.</p>
+  </div>
+
+  <!-- Grid -->
+  <section class="videos-section">
+    <p class="videos-count" id="videos-count"></p>
+    <div class="videos-grid" id="videos-grid"></div>
+  </section>
+
+  <!-- Modal -->
+  <div class="video-modal" id="video-modal">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-inner">
+      <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+      <div class="modal-embed">
+        <iframe id="modal-iframe" src="" frameborder="0" allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Bon Realty &nbsp;·&nbsp; 226 South Lincoln Ave, Niles, MI &nbsp;·&nbsp; <a href="tel:2696844445">(269) 684-4445</a> &nbsp;·&nbsp; <a href="../index.html">Back to Home</a></p>
+  </footer>
+
+  <script>
+    const VIDEOS = [
+      { id: 'UWeOMjtgOYE', title: '100 Forest Avenue',           city: 'Niles, MI',           desc: 'This view of the St. Joseph River never gets old' },
+      { id: 'U4ByKlqdVgU', title: '1449 Riverside Road',         city: 'Niles, MI',           desc: 'Custom-built craftsman style home with 238\' of river frontage' },
+      { id: 'DhKgdk1o5Gc', title: '21790 Buffalo Lane',          city: 'Cassopolis, MI',      desc: 'Waterfront country escape with forever views of Puterbaugh Lake — 5 bed / 4 bath on 2 acres' },
+      { id: 'hwR65sxRikE', title: '22492 Park Shore Drive',      city: 'Cassopolis, MI',      desc: 'Diamond Lake waterfront property with stunning lake access' },
+      { id: '5fN6Y7YYtWY', title: '19141 Mud Lake Street',       city: 'Cassopolis, MI',      desc: 'Over 6,000 sq ft of luxury — a stunning contemporary estate' },
+      { id: '95GgT8rdRhc', title: '54578 Love Lane',             city: 'Eau Claire, MI',      desc: 'Over 90 ft of waterfrontage on Indian Lake with raised ranch design' },
+      { id: 'paa0UMFT3-U', title: '14593 Mead Road',             city: 'Buchanan, MI',        desc: '5 bedroom home ready for you — 5 acres of privacy' },
+      { id: 'p634WUknWBE', title: '4248 E Tudor Road',           city: 'Berrien Springs, MI', desc: 'Extremely well cared for and nicely updated home on ½ acre' },
+      { id: 'VuNJhgasS3g', title: '9917 Maple Grove Road',       city: 'Charlevoix, MI',      desc: '10 acres of beautiful pines near Grand Traverse Bay' },
+      { id: 'IkFTo1pdX4U', title: '52851 Twin Lake Shore Drive', city: 'Dowagiac, MI',        desc: 'Affordable lakefront property with 50 ft of frontage' },
+      { id: 'xQVjdcy7PVY', title: '116 Bridle Path Lane',        city: 'Niles, MI',           desc: 'Longmeadow home with tranquil pond setting' },
+      { id: 'vsGURn7Ra1o', title: '15-16 Hidden Hills Drive',    city: 'Niles, MI',           desc: 'Vacant lots at the Michigan/Indiana stateline — a rare opportunity' },
+      { id: 'Yha7GewTqD0', title: '8333 M-62',                   city: 'Berrien Center, MI',  desc: 'Well cared for hobby farm with over 5 acres' },
+      { id: 'mO6m0emaFaQ', title: '4818 Marilyn Jane Way',       city: 'Stevensville, MI',    desc: 'Pride in ownership is evident — Lakeshore Schools district' },
+    ];
+
+    /* ── Render grid ─────────────────────────────────────────── */
+    function render() {
+      const grid = document.getElementById('videos-grid');
+      document.getElementById('videos-count').textContent = VIDEOS.length + ' Property Tours';
+
+      grid.innerHTML = VIDEOS.map((v, i) => `
+        <div class="video-card" onclick="openModal('${v.id}')">
+          <div class="video-thumb">
+            <img
+              src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg"
+              alt="${v.title}"
+              loading="${i < 6 ? 'eager' : 'lazy'}"
+            >
+            <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+            <span class="video-num">${String(i + 1).padStart(2, '0')}</span>
+          </div>
+          <div class="video-info">
+            <h3>${v.title}</h3>
+            <p><strong>${v.city}</strong> — ${v.desc}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    /* ── Modal ───────────────────────────────────────────────── */
+    function openModal(id) {
+      document.getElementById('modal-iframe').src =
+        `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      document.getElementById('video-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal-iframe').src = '';
+      document.getElementById('video-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-backdrop').addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    render();
+  </script>
+</body>
+</html>
