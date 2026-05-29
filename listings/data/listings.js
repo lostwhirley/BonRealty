@@ -211,7 +211,7 @@ const LISTINGS = [
   },
   {
     id: "bailey-ln-buchanan",
-    category: "seller",
+    category: "buyer",
     status: "Sold 03/11/2026",
     address: "15641 Bailey Ln",
     city: "Buchanan", state: "MI", zip: "49107",
@@ -223,7 +223,7 @@ const LISTINGS = [
   },
   {
     id: "308-s-mechanic-berrien-springs",
-    category: "seller",
+    category: "buyer",
     status: "Sold 03/08/2026",
     address: "308 S Mechanic St",
     city: "Berrien Springs", state: "MI", zip: "49103",
@@ -247,7 +247,7 @@ const LISTINGS = [
   },
   {
     id: "2314-westfield-niles",
-    category: "seller",
+    category: "buyer",
     status: "Sold 02/05/2026",
     address: "2314 Westfield Dr",
     city: "Niles", state: "MI", zip: "49120",
@@ -259,7 +259,7 @@ const LISTINGS = [
   },
   {
     id: "117-s-adams-lawton",
-    category: "seller",
+    category: "buyer",
     status: "Sold 01/22/2026",
     address: "117 S Adams St",
     city: "Lawton", state: "MI", zip: "49065",
@@ -271,7 +271,7 @@ const LISTINGS = [
   },
   {
     id: "1675-mallard-niles",
-    category: "seller",
+    category: "buyer",
     status: "Sold 01/05/2026",
     address: "1675 Mallard Dr",
     city: "Niles", state: "MI", zip: "49120",
@@ -355,7 +355,7 @@ const LISTINGS = [
   },
   {
     id: "2127-baldwin-niles",
-    category: "seller",
+    category: "buyer",
     status: "Sold 09/30/2025",
     address: "2127 Baldwin Dr",
     city: "Niles", state: "MI", zip: "49120",
@@ -391,7 +391,7 @@ const LISTINGS = [
   },
   {
     id: "308-hillview-buchanan",
-    category: "seller",
+    category: "buyer",
     status: "Sold 08/07/2025",
     address: "308 Hillview St",
     city: "Buchanan", state: "MI", zip: "49107",
@@ -451,7 +451,7 @@ const LISTINGS = [
   },
   {
     id: "315-s-state-niles",
-    category: "seller",
+    category: "buyer",
     status: "Sold 06/08/2025",
     address: "315 S State St",
     city: "Niles", state: "MI", zip: "49120",
@@ -487,7 +487,7 @@ const LISTINGS = [
   },
   {
     id: "24280-n-shore-edwardsburg",
-    category: "seller",
+    category: "buyer",
     status: "Sold 05/25/2025",
     address: "24280 N Shore Dr",
     city: "Edwardsburg", state: "MI", zip: "49112",
@@ -523,7 +523,7 @@ const LISTINGS = [
   },
   {
     id: "27331-m60-cassopolis",
-    category: "seller",
+    category: "buyer",
     status: "Sold 03/30/2025",
     address: "27331 M 60",
     city: "Cassopolis", state: "MI", zip: "49031",
@@ -607,7 +607,7 @@ const LISTINGS = [
   },
   {
     id: "69795-fox-xing-edwardsburg",
-    category: "seller",
+    category: "buyer",
     status: "Sold 11/14/2024",
     address: "69795 Fox Xing",
     city: "Edwardsburg", state: "MI", zip: "49112",
@@ -643,7 +643,7 @@ const LISTINGS = [
   },
   {
     id: "1893-allen-niles",
-    category: "seller",
+    category: "buyer",
     status: "Sold 10/24/2024",
     address: "1893 Allen Rd",
     city: "Niles", state: "MI", zip: "49120",
@@ -691,7 +691,7 @@ const LISTINGS = [
   },
   {
     id: "1802-ferry-niles",
-    category: "seller",
+    category: "buyer",
     status: "Sold 09/15/2024",
     address: "1802 Ferry St",
     city: "Niles", state: "MI", zip: "49120",
@@ -715,7 +715,7 @@ const LISTINGS = [
   },
   {
     id: "104-e-water-cassopolis",
-    category: "seller",
+    category: "buyer",
     status: "Sold 08/19/2024",
     address: "104 E Water St",
     city: "Cassopolis", state: "MI", zip: "49031",
@@ -727,7 +727,7 @@ const LISTINGS = [
   },
   {
     id: "68597-frantz-niles",
-    category: "seller",
+    category: "buyer",
     status: "Sold 07/30/2024",
     address: "68597 Frantz Ct",
     city: "Niles", state: "MI", zip: "49120",
