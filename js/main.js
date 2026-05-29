@@ -152,54 +152,6 @@ document.addEventListener('keydown', e => {
 });
 
 
-/* ─── Hero Slideshow ─────────────────────────────────────────── */
-function initHeroSlideshow() {
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots   = document.querySelectorAll('.hero-dot');
-  if (!slides.length) return;
-
-  let current = 0;
-  let timer;
-
-  function goTo(index) {
-    slides[current].classList.remove('active');
-    dots[current]?.classList.remove('active');
-    current = (index + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dots[current]?.classList.add('active');
-  }
-
-  function next() { goTo(current + 1); }
-
-  function startTimer() {
-    clearInterval(timer);
-    timer = setInterval(next, 5000);
-  }
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => { goTo(i); startTimer(); });
-  });
-
-  startTimer();
-}
-
-
-/* ─── Testimonial Carousel ───────────────────────────────────── */
-function initTestimonials() {
-  const quotes = document.querySelectorAll('.testimonial-quote');
-  if (!quotes.length) return;
-
-  let current = 0;
-
-  function next() {
-    quotes[current].classList.remove('active');
-    current = (current + 1) % quotes.length;
-    quotes[current].classList.add('active');
-  }
-
-  setInterval(next, 6000);
-}
-
 
 /* ─── Sticky Nav ─────────────────────────────────────────────── */
 function initNav() {
@@ -310,8 +262,6 @@ function initContactForm() {
 
 /* ─── Init All ───────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  initHeroSlideshow();
-  initTestimonials();
   initNav();
   initMobileNav();
   initSmoothScroll();
