@@ -76,20 +76,13 @@ const videos = [
   }
 ];
 
-const VIDEOS_PER_PAGE = 6;
-let videosShown = VIDEOS_PER_PAGE;
-
-
-/* ─── Render Videos ─────────────────────────────────────────── */
+/* ─── Render Videos (homepage — first 3 only) ───────────────── */
 function renderVideos() {
   const grid = document.getElementById('videos-grid');
-  const btn  = document.getElementById('load-more-btn');
   if (!grid) return;
 
   grid.innerHTML = '';
-  const slice = videos.slice(0, videosShown);
-
-  slice.forEach(v => {
+  videos.slice(0, 3).forEach(v => {
     const thumb = `https://img.youtube.com/vi/${v.id}/mqdefault.jpg`;
     const card = document.createElement('div');
     card.className = 'video-card fade-up';
@@ -109,19 +102,8 @@ function renderVideos() {
     grid.appendChild(card);
   });
 
-  // Show/hide "Load More" button
-  if (btn) {
-    btn.style.display = videosShown >= videos.length ? 'none' : 'inline-flex';
-  }
-
-  // Re-observe new cards for fade-in
   observeFadeElements();
 }
-
-document.getElementById('load-more-btn')?.addEventListener('click', () => {
-  videosShown = Math.min(videosShown + VIDEOS_PER_PAGE, videos.length);
-  renderVideos();
-});
 
 
 /* ─── Video Modal ────────────────────────────────────────────── */
