@@ -90,8 +90,8 @@ const LISTINGS = [
   },
   {
     id: "54879-indian-lake-dowagiac",
-    category: "active",
-    status: "Active",
+    category: "seller",
+    status: "Seller Rep",
     mlsNumber: "26015574",
     address: "54879 Indian Lake",
     city: "Dowagiac",
